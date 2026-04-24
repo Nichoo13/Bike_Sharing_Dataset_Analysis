@@ -18,7 +18,7 @@ st.header('1. Gathering Data')
 def load_data():
     try:
         # Pastikan file hour.csv ada di folder yang sama dengan app.py
-        df_hour = pd.read_csv("hour.csv")
+        df_hour = pd.read_csv("https://github.com/Nichoo13/Bike_Sharing_Dataset_Analysis/blob/main/dashboard/hour.csv?raw=true")
         df_hour["dteday"] = pd.to_datetime(df_hour["dteday"])
         return df_hour
     except FileNotFoundError:
