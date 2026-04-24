@@ -29,6 +29,32 @@ df_hour = load_data()
 st.write("Data `df_hour` berhasil dimuat. Berikut 5 baris pertama:")
 st.dataframe(df_hour.head())
 
+# --- MEMBUAT SIDEBAR INTERAKTIF ---
+st.sidebar.title("Filter Data Rental")
+
+# Mengambil tanggal minimum dan maksimum dari dataset
+min_date = df_hour["dteday"].min()
+max_date = df_hour["dteday"].max()
+
+# Membuat kalender interaktif di sidebar
+try:
+    start_date, end_date = st.sidebar.date_input(
+        label='Pilih Rentang Waktu',
+        min_value=min_date,
+        max_value=max_date,
+        value=[min_date, max_date]
+    )
+except ValueError:
+    # Jaga-jaga jika pengguna hanya memilih 1 tanggal, bukan rentang
+    st.error("Pastikan Anda memilih tanggal awal dan tanggal akhir.")
+    st.stop()
+
+# --- FILTERING DATA UTAMA ---
+# Menyaring data df_hour berdasarkan rentang tanggal yang dipilih pengguna
+main_df = df_hour[(df_hour["dteday"] >= str(start_date)) & 
+                  (df_hour["dteday"] <= str(end_date))]
+
+st.write(f"Menampilkan data dari **{start_date}** hingga **{end_date}**")
 
 # --- Visualisasi & Analisis Eksplanatori ---
 st.header('2. Visualisasi & Analisis Eksplanatori')
@@ -36,7 +62,7 @@ st.header('2. Visualisasi & Analisis Eksplanatori')
 # --- Pertanyaan 1 ---
 st.subheader('2.1. Pertanyaan 1: Perbandingan Pola Penyewaan (Casual vs Registered) pada Hari Kerja/Libur')
 
-df_question_1 = df_hour[['casual', 'registered', 'workingday', 'holiday']].copy()
+df_question_1 = main_df[['casual', 'registered', 'workingday', 'holiday']].copy()
 
 def jenis_hari(workingday, holiday):
     if workingday == 1 and holiday == 0:
@@ -76,7 +102,7 @@ st.markdown("""
 # --- Pertanyaan 2 ---
 st.subheader('2.2. Pertanyaan 2: Pengaruh Kelembapan (hum) dan Suhu (temp) terhadap Jumlah Penyewaan (cnt) di Hari Kerja')
 
-df_question_2 = df_hour[df_hour['workingday'] == 1].copy()
+df_question_2 = main_df[main_df['workingday'] == 1].copy()
 
 # Plot 1: Suhu vs Jumlah Sewa
 fig2, ax2 = plt.subplots(figsize=(10, 6))
