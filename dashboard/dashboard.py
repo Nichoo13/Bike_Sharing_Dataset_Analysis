@@ -124,7 +124,7 @@ st.pyplot(fig4)
 st.markdown("""
 **Insight Pertanyaan 2:**
 - Terlihat pola bahwa penyewaan mencapai puncak tertinggi saat suhu hangat (0.5 - 0.8) dan tingkat kelembapan udara yang rendah (titik berwarna biru/ungu).
-- **Action Plan:** Manajer operasional harus memastikan seluruh stok sepeda tersedia 100% di stasiun saat kondisi cuaca ideal ini terdeteksi di prakiraan cuaca.
+- **Action Plan:** Perusahaan harus memastikan seluruh stok sepeda tersedia 100% di stasiun saat kondisi cuaca ideal ini terdeteksi di prakiraan cuaca.
 """)
 
 st.header('3. Kesimpulan Akhir (Actionable)')
