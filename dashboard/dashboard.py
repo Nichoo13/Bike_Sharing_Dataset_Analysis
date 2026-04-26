@@ -16,7 +16,7 @@ st.header('1. Gathering Data')
 def load_data():
     try:
         # Membaca file lokal hour.csv
-        df_hour = pd.read_csv("hour.csv")
+        df_hour = pd.read_csv("dashboard/hour.csv")
         df_hour["dteday"] = pd.to_datetime(df_hour["dteday"])
         return df_hour
     except FileNotFoundError:
@@ -130,5 +130,5 @@ st.markdown("""
 st.header('3. Kesimpulan Akhir (Actionable)')
 st.success("""
 1. **Strategi Membership (Q1):** Perusahaan disarankan memfokuskan strategi promosi keanggotaan pada akhir pekan atau hari libur. Memberikan diskon pendaftaran *member* khusus di hari tersebut akan sangat efektif untuk menarik pengguna *casual* beralih menjadi pelanggan tetap (*registered*).
-2. **Manajemen Stok (Q2):** Manajer operasional harus menyiapkan stok sepeda maksimal saat suhu diprediksi hangat (0.5-0.8) dengan kelembapan rendah. Sebaliknya, saat cuaca diprediksi ekstrem atau kelembapan tinggi, perusahaan dapat menarik sebagian stok untuk jadwal pemeliharaan rutin guna efisiensi biaya.
+2. **Manajemen Stok (Q2):** Perusahaan harus menyiapkan stok sepeda maksimal saat suhu diprediksi hangat (0.5-0.8) dengan kelembapan rendah. Sebaliknya, saat cuaca diprediksi ekstrem atau kelembapan tinggi, perusahaan dapat menarik sebagian stok untuk jadwal pemeliharaan rutin guna efisiensi biaya.
 """)
