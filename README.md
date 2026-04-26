@@ -17,6 +17,8 @@ Sangat disarankan untuk menjalankan proyek ini di dalam *virtual environment* Py
 ```bash
 # 1. Buka terminal dan arahkan ke direktori proyek Anda
 cd path/to/your/project/folder
+# Sebagai contoh pada folder yang dashboard
+cd Bike_sharing_dataset_analysis/dashboard
 
 # 2. Buat virtual environment (Opsional, tapi sangat disarankan)
 python -m venv env
