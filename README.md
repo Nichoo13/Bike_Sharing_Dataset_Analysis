@@ -2,11 +2,11 @@
 
 ## Deskripsi Proyek
 Proyek ini merupakan *dashboard* interaktif yang dibangun menggunakan **Streamlit** untuk menganalisis data penyewaan sepeda (Bike Sharing Dataset). Analisis ini berfokus pada dua pertanyaan bisnis utama:
-1. Bagaimana perbandingan pola penyewaan antara pengguna *casual* dan *registered* pada hari kerja dibandingkan hari libur?
-2. Bagaimana pengaruh kondisi cuaca (suhu dan kelembapan) terhadap jumlah penyewaan sepeda di hari kerja?
+1. Bagaimana perbandingan pola penyewaan antara pengguna biasa (*casual*) dan anggota (*registered*) pada hari kerja (*workingday*) dibandingkan akhir pekan/hari libur (*holiday*) selama tahun 2011-2012, untuk menentukan di hari apa perusahaan harus memfokuskan promosi keanggotaan (membership)?
+2. Bagaimana pengaruh kelembapan (*hum*) dan temperatur suhu (*temp*) terhadap jumlah penyewaan (*cnt*) di hari kerja (*workingday*) selama periode 2011-2012, agar perusahaan dapat mengantisipasi lonjakan permintaan dengan menyiapkan stok maksimal?
 
 ## Struktur File
-- `app.py`: File utama yang berisi kode aplikasi Streamlit.
+- `dashboard.py`: File utama yang berisi kode aplikasi Streamlit.
 - `hour.csv`: Dataset mentah yang digunakan untuk analisis.
 - `requirements.txt`: Daftar *library* Python beserta versinya yang dibutuhkan untuk menjalankan proyek ini.
 
